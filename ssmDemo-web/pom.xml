@@ -152,7 +152,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.dd</groupId>
-			<artifactId>common-util</artifactId>
+			<artifactId>dd-common-util</artifactId>
 			<version>1.0</version>
 		</dependency>
 		<dependency>
