@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%5p] [%d{yyyy-MM-dd HH:mm:ss SSS}] [%t] (%F:%L) %m%n"/>
+        </layout>
+    </appender>
+	<appender name="DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Encoding" value="UTF-8" />
+		<param name="File" value="/data/logs/coursemgn/common-default.log" /> <!-- 日志路径，根据实际情况修改 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%5p] [%d{yyyy-MM-dd HH:mm:ss SSS}] [%t] (%F:%L) %m%n" />
+		</layout>
+	</appender>
+	<!-- [公共Appender] 汇总错误 -->
+	<appender name="ERROR-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Encoding" value="UTF-8" />
+		<param name="File" value="/data/logs/coursemgn/common-error.log" />
+		<param name="threshold" value="warn" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%5p] [%d{yyyy-MM-dd HH:mm:ss SSS}] [%t] (%F:%L) %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
+	<root>
+		<level value="INFO" />       <!-- print warn、error -->
+		<appender-ref ref="DEFAULT-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+		<appender-ref ref="CONSOLE"/>
+	</root>
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%-5p %d{MM-dd HH:mm:ss} %m  (%F:%L) \n" />  
+        </layout>  
+    </appender>  
+    <category name="java.sql">  
+        <priority value="debug" />  
+    </category>  
+    <category name="com.ibatis">  
+        <priority value="debug" />  
+    </category>
+</log4j:configuration>
