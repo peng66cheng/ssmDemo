@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dd.ssm.model.UserVO;
 import com.dd.ssm.service.UserService;
+import com.dd.util.UnifiedResult;
 
 
 //http://localhost:8080/ssmDemo-web/user?loginName=001&password=001&name=dd&birthDay=1985-01-01
@@ -29,9 +30,10 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	UserVO getUserByName(String userName){
+	UnifiedResult<UserVO> getUserByName(String userName){
 //		TODO check arg
-		return userService.getUserByName(userName);
+		UserVO result = userService.getUserByName(userName);
+		return UnifiedResult.getSuccessResult(result);
 	}
 
 }
