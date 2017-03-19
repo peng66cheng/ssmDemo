@@ -2,6 +2,8 @@ package com.dd.ssm.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * 
  * 
@@ -92,6 +94,7 @@ public class UserVO {
 		this.mobile = mobile;
 	}
 
+	@JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
 	public Date getBirthDay() {
 		return birthDay;
 	}

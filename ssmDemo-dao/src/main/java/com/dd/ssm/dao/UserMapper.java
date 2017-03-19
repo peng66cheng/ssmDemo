@@ -1,5 +1,6 @@
 package com.dd.ssm.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.dd.ssm.domain.User;
@@ -53,4 +54,12 @@ public interface UserMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(User record);
+    
+    /**
+     * 通过名称查询用户
+     * 
+     * @param name
+     * @return
+     */
+    User selectByName(@Param("name") String name);
 }

@@ -22,11 +22,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.insert(userDO);
 	}
 
-//	@Override
-//	public UserVO getUserByName(String userName) {
-//		// TODO check args
-//		User user = userDao.selectByName(userName);
-//		return BeanCopyUtils.convertClass(user, UserVO.class);
-//	}
+	@Override
+	public UserVO getUserByName(String userName) {
+		// TODO check args
+		User user = userDao.selectByName(userName);
+		return BeanCopyUtils.convertClass(user, UserVO.class);
+	}
 
 }

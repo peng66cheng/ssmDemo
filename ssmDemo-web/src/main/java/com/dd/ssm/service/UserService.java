@@ -22,5 +22,5 @@ public interface UserService {
 	 * @param userName
 	 * @return
 	 */
-//	UserVO getUserByName(String userName);
+	UserVO getUserByName(String userName);
 }
