@@ -7,9 +7,10 @@ CREATE TABLE `user` (
   `email` varchar(200) DEFAULT NULL COMMENT '邮箱',
   `phone` varchar(200) DEFAULT NULL COMMENT '电话',
   `mobile` varchar(200) DEFAULT NULL COMMENT '手机',
-  `birth_day` DATE comment '生日',
-  `create_date` datetime NOT NULL COMMENT '创建时间',
-  `update_date` datetime NOT NULL COMMENT '更新时间',
+  `birth_day` date NULL DEFAULT NULL COMMENT '生日',
+  `status` tinyint(3) unsigned DEFAULT '1' COMMENT '状态：0，无效；1，有效',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `modify_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   `remarks` varchar(255) DEFAULT NULL COMMENT '备注信息',
   PRIMARY KEY (`id`),
   KEY `sys_user_login_name` (`login_name`)
