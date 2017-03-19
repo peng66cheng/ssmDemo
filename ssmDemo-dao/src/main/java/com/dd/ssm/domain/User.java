@@ -1,4 +1,4 @@
-package com.dd.ssmDemo.domain;
+package com.dd.ssm.domain;
 
 import java.util.Date;
 

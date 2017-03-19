@@ -1,6 +1,6 @@
-package com.dd.ssmDemo.service;
+package com.dd.ssm.service;
 
-import com.dd.ssmDemo.model.UserVO;
+import com.dd.ssm.model.UserVO;
 
 /**
  * 用户服务
@@ -22,5 +22,5 @@ public interface UserService {
 	 * @param userName
 	 * @return
 	 */
-	UserVO getUserByName(String userName);
+//	UserVO getUserByName(String userName);
 }

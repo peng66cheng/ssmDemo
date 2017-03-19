@@ -9,10 +9,6 @@
      http://www.springframework.org/schema/mvc  
      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
      
-	<!-- <context:property-placeholder location="classpath:jdbc.properties" /> -->
-	<!-- 数据源 -->
-	<!-- <context:component-scan base-package="com.daydays.coursemng.dao" /> -->
-
 	<!-- BoneCP configuration -->
 	<bean id="abstractDataSource" abstract="true"
 		class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
@@ -50,7 +46,7 @@
 	
 	 <!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.daydays.coursemng.dao" />
+        <property name="basePackage" value="com.dd.ssm.dao" />
         <property name="sqlSessionFactoryBeanName" value="sessionFactory" />
     </bean>
 	

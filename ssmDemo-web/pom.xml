@@ -8,6 +8,7 @@
 	</parent>
 	<artifactId>ssmDemo-web</artifactId>
 	<name>ssmDemo-web</name>
+	<packaging>war</packaging>
 
 	<build>
 		<resources>
@@ -153,7 +154,7 @@
 		<dependency>
 			<groupId>com.dd</groupId>
 			<artifactId>dd-common-util</artifactId>
-			<version>1.0</version>
+			<version>${common-util.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.dd</groupId>
@@ -163,6 +164,12 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
 		</dependency>
 
 	</dependencies>
