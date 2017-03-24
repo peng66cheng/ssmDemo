@@ -5,9 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dd.ssm.model.ModifyDateKey;
 import com.dd.ssm.model.UserVO;
 import com.dd.ssm.service.UserService;
-import com.dd.util.UnifiedResult;
+import com.dd.util.bean.ModifyDateService;
+import com.dd.util.result.ResultWithMD;
+import com.dd.util.result.StatusCodeEnum;
+import com.dd.util.result.UnifiedResult;
 
 
 //http://localhost:8080/ssmDemo-web/user?loginName=001&password=001&name=dd&birthDay=1985-01-01
@@ -19,6 +23,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ModifyDateService modifyDataService;
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
@@ -30,10 +36,17 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	UnifiedResult<UserVO> getUserByName(String userName){
+	UnifiedResult<UserVO> getUserByName(String userName, Long modifyDate){
 //		TODO check arg
+		
+		String dataKey = ModifyDateKey.getSubjectMDKey(userName);
+		if (!modifyDataService.isDataModified(modifyDate, dataKey)) {
+			return UnifiedResult.getInstance(StatusCodeEnum.NO_MODIFY);
+		}
 		UserVO result = userService.getUserByName(userName);
-		return UnifiedResult.getSuccessResult(result);
+		
+		
+		return ResultWithMD.getSuccessResult(result, modifyDataService.getDataModifyDate(dataKey));
 	}
 
 }

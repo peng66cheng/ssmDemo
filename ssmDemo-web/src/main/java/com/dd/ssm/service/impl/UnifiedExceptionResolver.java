@@ -16,8 +16,8 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.dd.util.StatusCodeEnum;
-import com.dd.util.UnifiedResult;
+import com.dd.util.result.StatusCodeEnum;
+import com.dd.util.result.UnifiedResult;
 
 /**
  * spring mvc 统一异常处理器
